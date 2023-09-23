@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto Blog</title>
+</head>
+<body>
+    <h1>Foto Blog</h1>
+    {% block content %}{% endblock  %}
+    {% if user.is_authenticated %}
+        <p>You are logged is as {{request.user}}. Click here to <a href="{% url "logout" %}">logout</a></p>
+    {% endif %}
+
+</body>
+</html>

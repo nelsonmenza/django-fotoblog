@@ -1,3 +1,37 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import redirect, render
+from django.views.generic import View
 
-# Create your views here.
+from . import forms
+
+
+class LoginPageView(View):
+    template_name = 'authentication/login.html'
+    form_class = forms.LoginForm
+
+    def get(self, request):
+        form = self.form_class()
+        message = ""
+        context = {'form': form, 'message': message}
+        return render(request, self.template_name, context)
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            user = authenticate(
+                username=form.cleaned_data['username'],
+                password=form.cleaned_data['password'],
+            )
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+        message = 'Login faild!'
+        context = {'form': form, 'message': message}
+        return render(request, self.template_name, context)
+
+
+class LogOutView(View):
+
+    def logout_user(request):
+        logout(request)
+        return redirect('login')
