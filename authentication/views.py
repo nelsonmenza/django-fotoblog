@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from django.views.generic import View
@@ -30,8 +31,18 @@ class LoginPageView(View):
         return render(request, self.template_name, context)
 
 
-class LogOutView(View):
+def logout_user(request):
+    logout(request)
+    return redirect('login')
 
-    def logout_user(request):
-        logout(request)
-        return redirect('login')
+
+def signup_page(request):
+    form = forms.SignupForm()
+    if request.method == "POST":
+        form = forms.SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect(settings.LOGIN_REDIRECT_URL)
+    context = {'form': form}
+    return render(request, 'authentication/signup.html', context)
