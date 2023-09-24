@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <nav>
+        <a href="{% url "photo_upload" %}">Upload Photo</a>
+    </nav>
+    <h2>Photos</h2>
+    {% for photo in photos %}
+        <img src="{{photo.image.url}}">
+        <p>{{photo.caption}}</p>
+    {% endfor %}
+
 
 <p>You managed to log in! Aren't you lucky.</p>
+
+
 
 {% endblock content %}
