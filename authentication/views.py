@@ -60,12 +60,11 @@ def signup_page(request):
 
 @login_required
 def upload_profile_photo(request):
-    form = UploadProfilePhotoForm()
+    form = UploadProfilePhotoForm(instance=request.user)
     if request.method == 'POST':
-        form = UploadProfilePhotoForm(request.FILES)
+        form = UploadProfilePhotoForm(
+            request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('index')
-
-    context = {"form": form}
-    ...
+            return redirect('home')
+    return render(request, 'authentication/upload_profile_photo.html', context={'form': form})

@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import UploadProfilePhoto, User
+from .models import User
 
 
 class LoginForm(forms.Form):
@@ -23,8 +23,8 @@ class SignupForm(UserCreationForm):
             visible.field.widget.attrs['class'] = 'form-control'
 
 
-class UploadProfilePhotoForm(forms.ModelForm):
+class UploadProfilePhotoForm(UserCreationForm):
 
-    class Meta:
-        model = UploadProfilePhoto
-        fields = "__all__"
+    class Meta(UserCreationForm):
+        model = User
+        fields = ("profile_photo",)
