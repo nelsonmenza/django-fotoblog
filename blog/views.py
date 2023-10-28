@@ -1,21 +1,25 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
-from . import forms, models
+from .forms import PhotoForm
+from .models import Photo
 
 
+# Home page
 @login_required
 def home(request):
-    photos = models.Photo.objects.all()
+    photos = Photo.objects.all()
     context = {"photos": photos}
     return render(request, "blog/home.html", context)
+
+# Photo upload
 
 
 @login_required
 def photo_upload(request):
-    form = forms.PhotoForm()
+    form = PhotoForm()
     if request.method == "POST":
-        form = forms.PhotoForm(request.POST, request.FILES)
+        form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
             photo = form.save(commit=False)
             photo.uploader = request.user

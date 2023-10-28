@@ -1,14 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block content %}
-    <h2>Sign Up</h2>
+<section>
+    {% block title %}
+        <h1 class='title-main'>Sign Up</h1>
+    {% endblock title %}
+    {% block content %}
+    
     {% if form.error %}
         {{form.error}}
     {% endif %}
     <form action="" method="post">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Sign Up</button>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
     </form>
     <p>Are you a member already? <a href="{% url "login" %}"> Sign in now!</a></p>
     {% endblock content %}
+</section>

@@ -6,7 +6,7 @@ from django.contrib.auth.views import (
 )
 from django.urls import path
 
-from . import views
+from .views import signup_page
 
 urlpatterns = [
     path('', LoginView.as_view(
@@ -22,6 +22,6 @@ urlpatterns = [
         template_name='authentication/password_change_done.html'),
         name='password_change_done'
     ),
-    path('signup/', views.signup_page, name='signup'),
+    path('signup/', signup_page, name='signup'),
 
 ]

@@ -10,3 +10,7 @@ class User(AbstractUser):
 
     profile_photo = models.ImageField()
     role = models.CharField(max_length=30, choices=ROLES_CHOICES)
+
+
+class UploadProfilePhoto(models.Model):
+    p_photo = models.ForeignKey(User, on_delete=models.CASCADE)

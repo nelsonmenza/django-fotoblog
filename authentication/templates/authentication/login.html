@@ -1,13 +1,33 @@
 {% extends "base.html" %}
-{% block content %}
-    <p>{{message}}</p>
-    <form action="" method="post">
-        {{form.as_p}}
-        {% csrf_token %}
-    <button type="submit">Login</button>  
+{% load static %}
 
-  </form>
-  <p>Not a member? <a href="{% url "signup" %}"> Sign up now!</a></p>
+
+    {% block content %}
+    <div class="container-login">
+
+        <section class='section-login'>
+            <h1>Login</h1>
+
+            <p>{{message}}</p>
+            <form method='post' class='container'>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_username">Username:</label>
+                    <input type="text" name="username" class="form-control" autofocus="true" autocapitalize="none"
+                        autocomplete="username" maxlength="150" required="" id="id_username">
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_password">Password:</label>
+                    <input type="password" class="form-control" name="password" autocomplete="current-password" required="" id="id_password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <p>Not a member? <a href="{% url "signup" %}"> Sign up now!</a></p>
+
+            </form>
+        
+        </section>
+    </div>
 
 
 {% endblock content %}
