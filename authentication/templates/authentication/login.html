@@ -2,32 +2,33 @@
 {% load static %}
 
 
-    {% block content %}
-    <div class="container-authentication">
+{% block content %}
+<div class="container-authentication">
 
-        <section class='section-authentication'>
-            <h1>Login</h1>
+    <section class='section-authentication'>
+        <h1>Login</h1>
 
-            <p>{{message}}</p>
-            <form method='post' class='container'>
-                {% csrf_token %}
-                <div class="mb-3">
-                    <label for="id_username">Username:</label>
-                    <input type="text" name="username" class="form-control" autofocus="true" autocapitalize="none"
-                        autocomplete="username" required="" id="id_username">
-                </div>
+        <p>{{message}}</p>
+        <form method='post' class='container'>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" class="form-control" autofocus="true" autocapitalize="none"
+                    autocomplete="username" required="" id="id_username">
+            </div>
 
-                <div class="mb-3">
-                    <label for="id_password">Password:</label>
-                    <input type="password" class="form-control" name="password" autocomplete="current-password" required="" id="id_password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <p>Not a member? <a href="{% url "signup" %}"> Sign up now!</a></p>
+            <div class="mb-3">
+                <label for="id_password">Password:</label>
+                <input type="password" class="form-control" name="password" autocomplete="current-password" required=""
+                    id="id_password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <p>Not a member? <a href="{% url "signup" %}"> Sign up now!</a></p>
 
-            </form>
-        
-        </section>
-    </div>
+        </form>
+
+    </section>
+</div>
 
 
 {% endblock content %}

@@ -18,70 +18,71 @@
 
 <body>
     <main>
-    {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
 
 
         <aside class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
-                <hr>
-                <a href="{% url "home" %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                  <span class="fs-4">FotoBlog</span>
-                </a>
-                <hr>
-                {% comment %} Profile Photo  {% endcomment %}
-                <p>Hey, {{request.user}}! </p>
+            <hr>
+            <a href="{% url 'home' %}"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <span class="fs-4">FotoBlog</span>
+            </a>
+            <hr>
+            {% comment %} Profile Photo {% endcomment %}
+            <p>Hey, {{request.user}}! </p>
 
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none " id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none " id="dropdownUser1"
+                data-bs-toggle="dropdown" aria-expanded="false">
                 {% if user.profile_photo %}
-                        
-                        <img class="avatar" src={{ user.profile_photo.url }}>
+
+                <img class="avatar rounded-circle me-2" width="100" height="100" src="{{ user.profile_photo.url }}">
                 {% else %}
-                        <img src="https://github.com/mdo.png" alt="" width="100" height="100" class="rounded-circle me-2">
+                <img src="https://github.com/mdo.png" alt="" width="100" height="100" class="rounded-circle me-2">
                 {% endif %}
-                
-                    </a>
-                
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                  <li class="nav-item">
-                    <a href="{% url "home" %}" class="nav-link text-white" aria-current="page">
+            </a>
+
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link text-white" aria-current="page">
                         <i class="bi bi-house"></i>
-                      Home
+                        Home
                     </a>
-                  </li>
-                  <li>
+                </li>
+                <li>
                     <a href="#" class="nav-link text-white">
                         <i class="bi bi-images"></i>
                         Photo Feed
                     </a>
-                  </li>
-                  <li>
-                    <a href="{% url "photo_upload" %}" class="nav-link text-white">
+                </li>
+                <li>
+                    <a href="{% url 'photo_upload' %}" class="nav-link text-white">
                         <i class="bi bi-cloud-upload"></i>
                         Upload Photo
                     </a>
-                  </li>
-                  <li>
-                    <a href="{% url "change_profile_photo" %}" class="nav-link text-white">
+                </li>
+                <li>
+                    <a href="{% url 'change_profile_photo' %}" class="nav-link text-white">
                         <i class="bi bi-person-up"></i>
                         Change Profile Photo
                     </a>
-                  </li>
-                  <li>
-                    <a href="{% url "password_change" %}" class="nav-link text-white">
+                </li>
+                <li>
+                    <a href="{% url 'password_change' %}" class="nav-link text-white">
                         <i class="bi bi-key"></i>
                         Change Password
                     </a>
-                  </li>
-                  <li>
-                    <a href="{% url "logout" %}" class="nav-link text-white">
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}" class="nav-link text-white">
                         <i class="bi bi-box-arrow-up-left"></i>
                         Logout
                     </a>
-                  </li>
-                </ul>
-                
+                </li>
+            </ul>
+
         </aside>
-    {% endif %}
+        {% endif %}
 
         <section class="container">
             {% block content %}
