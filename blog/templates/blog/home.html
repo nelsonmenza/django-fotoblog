@@ -4,15 +4,23 @@
 
 {% block content %}
     <h2>Photos</h2>
-   
+   <br>
     {% for photo in photos %}
-        <img src="{{photo.image.url}}">
+        <img src="{{photo.image.url}}" width="200" height="auto">
         <p>{{photo.caption}}</p>
     {% endfor %}
-    <p>You managed to log in! Aren't you lucky.</p>
 
-
-
+    <h2>Blogs</h2>
+    <div class="grid-container">
+        {% for blog in blogs %}
+            <div class="post">
+                <a href="{% url 'view_blog' blog.id %}">
+                    <h4>Blog Post: {{ blog.title }}</h4>
+                    <img src="{{ blog.photo.image.url }}" width="200" height="auto">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 
 
 

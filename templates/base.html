@@ -29,7 +29,7 @@
             </a>
             <hr>
             {% comment %} Profile Photo {% endcomment %}
-            <p>Hey, {{request.user}}! </p>
+            <p>Hey, {{request.user.first_name}}! </p>
 
             <a href="#" class="d-flex align-items-center text-white text-decoration-none " id="dropdownUser1"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -42,6 +42,8 @@
             </a>
 
             <hr>
+
+            {% comment %} list of link  {% endcomment %}
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="{% url 'home' %}" class="nav-link text-white" aria-current="page">
@@ -50,9 +52,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="{% url "blog_create" %}" class="nav-link text-white">
                         <i class="bi bi-images"></i>
-                        Photo Feed
+                        Create Blog post
                     </a>
                 </li>
                 <li>
