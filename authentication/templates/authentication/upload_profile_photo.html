@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
-<h2>Upload a Photo</h2>
-<form action="" method="post" enctype="multipart/form-data" class='form-upload'>
-    {% csrf_token %}
-    <label for="id_profile_photo">Profile photo:</label>
-    <input class="form-control" type="file" name="profile_photo" accept="image/*" required="" id="id_profile_photo">
-    <br>
-    <button type="submit" class="btn btn-primary upload-btn">Submit</button>
-</form>
+    <h2>Upload a Photo</h2>
+    <form method="post" enctype="multipart/form-data" class="form-upload">
+        {% csrf_token %}
+        <label for="id_profile_photo">Profile photo:</label>
+        <input class="form-control"
+               type="file"
+               name="profile_photo"
+               accept="image/*"
+               required=""
+               id="id_profile_photo">
+        <br>
+        <button type="submit" class="btn btn-primary upload-btn">Submit</button>
+    </form>
 {% endblock content %}

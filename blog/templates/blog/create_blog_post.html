@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
     <h2>Create Blog Post</h2>
-    <form action="" method="post" enctype="multipart/form-data" class='form-upload'>
+    <form action=""
+          method="post"
+          enctype="multipart/form-data"
+          class='form-upload'>
         {% csrf_token %}
-        {{blog_form.as_p}}
-        {{photo_form.as_p}}
+        {{ blog_form.as_p }}
+        {{ photo_form.as_p }}
         <button type="submit" class="btn btn-primary upload-btn">Submit</button>
     </form>
 {% endblock content %}
