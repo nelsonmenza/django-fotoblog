@@ -16,6 +16,7 @@ aside {
 
 .container {
   padding: 3rem 2rem;
+  overflow: scroll; /*Add scroll bar*/
 }
 
 /* Authentication style */
@@ -40,6 +41,7 @@ aside {
   display: flex;
   flex-direction: column;
   max-width: 75vh;
+  max-height: auto;
   margin: auto;
   padding-top: 2rem;
 }
