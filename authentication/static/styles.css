@@ -1,50 +1,53 @@
 /* container */
 main {
-    display: flex;
-    flex-wrap: nowrap;
-    height: 100vh;
-    max-height: 100vh;
-    overflow-x: auto;
-    overflow-y: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  max-height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 aside {
-    width: 16rem;
-    justify-content: center;
-    align-items: center;
+  width: 16rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-    padding: 3rem 2rem;
-
+  padding: 3rem 2rem;
 }
 
 /* Authentication style */
 
 .container-authentication {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .section-authentication {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80vh;
-    height: auto;
-    max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vh;
+  height: auto;
+  max-width: 100%;
 }
 /* Upload style  */
-.form-upload{
-    display: flex;
-    flex-direction: column;
-    max-width: 75vh;
-    margin: auto;
-    padding-top: 2rem;
+.form-upload {
+  display: flex;
+  flex-direction: column;
+  max-width: 75vh;
+  margin: auto;
+  padding-top: 2rem;
 }
 
-.upload-btn{
-    max-width: 20%;
+.upload-btn {
+  max-width: 20%;
+}
+
+img {
+  background-color: aliceblue;
 }
